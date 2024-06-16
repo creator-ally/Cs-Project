@@ -1,0 +1,237 @@
+import tkinter as tk,tkinter
+import customtkinter as ctk
+from tkinter import *
+from PIL import Image, ImageTk
+
+window=tkinter.Tk()
+window.title( 'Login Page')
+window.geometry('600x500')
+a='#811331'
+window.configure(bg=a)
+imge1 = ctk.CTkImage(Image.open(r"/storage/emulated/0/download/logo.png"),size=(300,300))
+bckimg =ctk.CTkImage(Image.open(r"/storage/emulated/0/Pcs/back.png"))
+crtimg=ctk.CTkImage(Image.open(r"/storage/emulated/0/Pcs/cart.png"),size=(25,25))
+setimg=ctk.CTkImage(Image.open(r"/storage/emulated/0/Pcs/set.png"))
+profimg=ctk.CTkImage(Image.open(r"/storage/emulated/0/Pcs/prof.png"))
+                      
+lbal=ctk.CTkLabel(window,image=imge1,text=" ",bg_color='#811331')
+lbal.pack()
+
+def checked():
+     
+         window.destroy()
+         shop=tkinter.Tk()
+         tab=Frame(shop ,width=50,bg="#811331")
+         upd=Frame(shop,bg='#811331')
+         shop.title('Dashboard')
+         shop.geometry('600x500')
+         shop.configure(bg='#811331')
+         
+         
+         
+         
+         def cart():
+                       shop.withdraw()
+                       cart=Toplevel()
+                       cart.title('Cart')      
+                       cart.geometry('500x600')    
+                       cart.configure(bg='#811331')   
+                       cart.attributes('-fullscreen', True)   
+                       
+                      
+                       def back():
+                                shop.deiconify()
+                                cart.destroy()
+                       bckbtn=ctk.CTkButton(cart,text=" ",image=bckimg,command=back,height=30,width=30,compound=LEFT,corner_radius=50,fg_color="#FF5F55")
+                       
+                       
+                       bckbtn.place(x=20,y=10)
+          
+         def ord():
+                      shop.withdraw()
+                      ordtab=Toplevel()
+                      ordtab.title('Orders')
+                      ordtab.geometry('600x500')
+                      ordtab.configure(bg='#811331')
+                      ordtab.attributes('-fullscreen', True)
+                     
+                    
+                      orlbl=ctk.CTkLabel(ordtab,text="Orders",fg_color='#FF5F55',font=("Arial",40),corner_radius=20)
+                      
+                      
+                      def back():
+                                shop.deiconify()
+                                ordtab.destroy()
+                      bckbtn=ctk.CTkButton(ordtab,text=" ",image=bckimg,compound=LEFT,command=back,height=30,width=30,corner_radius=50,fg_color="#FF5F55")          
+                     
+        
+              
+              
+                      orlbl.pack()
+                      bckbtn.place(x=20,y=10)
+                      
+         
+               
+         def pro():
+              shop.withdraw()        
+              protab=Toplevel()
+              protab.title('Profile')
+              protab.geometry('600x500')
+              protab.configure(bg='#811331')
+              protab.attributes('-fullscreen', True)
+              
+          
+              ptlbl=ctk.CTkLabel(protab,text="Profile",fg_color='#FF5F55',font=("Arial",40),corner_radius=20)
+             
+              def back():
+                                shop.deiconify()
+                                
+              bckbtn=ctk.CTkButton(protab,text=" ",image=bckimg,compound=LEFT,command=back,height=30,width=30,corner_radius=50,fg_color="#FF5F55")
+              
+              
+             
+              ptlbl.pack()
+              bckbtn.place(x=20,y=10)
+    
+    
+          
+         def cou():
+              shop.withdraw()   
+              coutab=Toplevel()      
+              coutab.title("Coupons") 
+              coutab.geometry('600x500')
+              coutab.configure(bg='#811331')
+              coutab.attributes('-fullscreen', True)
+              
+              
+              colbl=ctk.CTkLabel(coutab,text="Coupons",fg_color='#FF5F55',font=("Arial",40),corner_radius=20)
+              
+               
+              def back():
+                                shop.deiconify()
+                                
+              bckbtn=ctk.CTkButton(coutab,text=" ",image=bckimg,compound=LEFT,command=back,height=30,width=30,corner_radius=50,fg_color="#FF5F55")
+              
+              
+              
+              
+              colbl.pack()
+              bckbtn.place(x=20,y=10)
+ 
+           
+         def hp():
+               shop.withdraw()   
+               hptab=Toplevel()
+               hptab.title("Help center")
+               hptab.geometry("600x500")
+               hptab.configure(bg='#811331')
+               hptab.attributes('-fullscreen', True)
+               
+               
+               hplbl=ctk.CTkLabel(hptab,text="Help Centet",fg_color='#FF5F55',font=("Arial",40),corner_radius=20)
+               
+               def back():
+                                shop.deiconify()
+                                
+               bckbtn=ctk.CTkButton(hptab,text=" ",image=bckimg,compound=LEFT,command=back,height=30,width=30,corner_radius=50,fg_color="#FF5F55")
+              
+              
+              
+              
+               hplbl.pack()
+               bckbtn.place(x=20,y=10)
+               
+          
+         def set():
+              shop.withdraw()
+              settab=Toplevel()
+              settab.title('Settings')
+              settab.geometry('600x500')
+              settab.configure(bg='#811331')
+              settab.attributes('-fullscreen', True)
+              
+              stlbl=ctk.CTkLabel(settab,text="settings",fg_color='#FF5F55',font=("Arial",40),corner_radius=20)
+              
+              
+              
+              def cng():
+                  a='#black'
+              thmbtn=ctk.CTkButton(master=settab,text="dark",fg_color="#FF5F55",bg_color="#811331",command=cng)
+                
+              def back():
+                                shop.deiconify()
+                                
+              bckbtn=ctk.CTkButton(settab,text=" ",image=bckimg,compound=LEFT,command=back,corner_radius=60,height=30,width=30,fg_color="#FF5F55")
+              
+              
+              
+              
+              stlbl.pack()
+              bckbtn.place(x=20,y=10)
+              thmbtn.pack()
+         
+         
+         
+         orders=ctk.CTkButton(master=tab,text="Orders",fg_color="#FF5F55",font=("Arial",10), corner_radius=20,width=20,height=20, command=ord)
+         
+         profile=ctk.CTkButton(master=tab,text="Profile",fg_color="#FF5F55",font=("Arial",10), corner_radius=20,width=20,height=20,command=pro,image=profimg,compound=LEFT)
+         
+         coupons=ctk.CTkButton(master=tab,text="Coupons",fg_color="#FF5F55",font=("Arial",10), corner_radius=20,width=20,height=20,command=cou)
+         
+         hpc=ctk.CTkButton(master=tab,text="Help Center",fg_color="#FF5F55",font=("Arial",10), corner_radius=20,width=20,height=20,command=hp)
+         
+         settings=ctk.CTkButton(master=tab,text="Settings",fg_color="#FF5F55",font=("Arial",10), corner_radius=20,width=20,height=20,command=set,image=setimg,compound=LEFT)
+                
+         
+         
+
+         search=ctk.CTkEntry(master=shop,corner_radius=20,width=200,height=20)
+         
+         seabtn=ctk.CTkButton(master=shop,text="search",fg_color="#FF5F55",corner_radius=20,width=50)
+         
+         crtbtn=ctk.CTkButton(shop,text=" ",image=crtimg,command=cart,compound=LEFT,fg_color="#FF5F55",corner_radius=10,width=25)
+         
+        
+         tab.place(x=0)
+         
+         
+         
+         orders.pack(pady=10)
+         profile.pack(pady=10)
+         coupons.pack(pady=10)
+         hpc.pack(pady=10)
+         settings.pack()
+         
+         
+         search.place(x=300,y=5)
+         seabtn.place(x=510,y=5)
+         crtbtn.place(x=650,y=5)
+         
+         shop.mainloop()
+  
+
+login_label = tkinter.Label(window,text="Grocery Store",font=("Harlow Solid Italic",20),bg='#811331')
+username_label=tkinter.Label(window,text="Username",bg='#811331',font=("Arial",10))
+username_entry=ctk.CTkEntry(window,show='+',font=("Arial",10), corner_radius=20,width=500, height=35)
+password_label=tkinter.Label(window,text="Password",bg='#811331',font=("Arial",10))
+password_entry=ctk.CTkEntry(window,show='*',font=("Arial",10),corner_radius=20, width=500,height=35)
+login_button = ctk.CTkButton(
+    master=window, 
+    text="login",
+    bg_color="#811331",  
+    fg_color="#FF5F55",
+    font=("Arial",10),
+    corner_radius=20,width=200, command=checked )
+fgpass=ctk.CTkButton(window,text="forgot password ?",bg_color="#811331",fg_color="#811331",hover_color='#811311')
+    
+
+
+login_label.pack()
+username_label.pack()
+username_entry.pack()
+password_label.pack()
+password_entry.pack()
+fgpass.pack()
+login_button.pack(pady=10)
+
+window.mainloop()
